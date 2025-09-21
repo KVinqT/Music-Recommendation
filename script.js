@@ -63,10 +63,10 @@ class MusicRecommendationSystem {
 
     const data = await response.json();
     // Ensure data is always an array
-    if (!Array.isArray(data)) {
+    if (!Array.isArray(data.recommendations)) {
       throw new Error("Invalid API response");
     }
-    return data;
+    return data.recommendations;
   }
 
   displayRecommendations(recommendations) {
@@ -107,12 +107,16 @@ class MusicRecommendationSystem {
                 </div>
                 <div class="detail-item">
                     <span class="detail-label">Score:</span>
-                    <span class="detail-value">${song.score}</span>
+                    <span class="detail-value">${
+                      Math.round(song.score * 10) / 10
+                    }</span>
                 </div>
             </div>
             <div class="music-lyrics" style="margin-top:12px;">
                 <strong>Lyrics:</strong>
-                <div style="font-size:0.95em;color:#666;margin-top:4px;">${song.ly}</div>
+                <div style="font-size:0.95em;color:#666;margin-top:4px;">${
+                  song.ly
+                }</div>
             </div>
         `;
 
