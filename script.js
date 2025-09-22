@@ -49,7 +49,7 @@ class MusicRecommendationSystem {
 
   async searchLyricsAndGetRecommendations(query) {
     // Call the real API
-    const response = await fetch("https://lyrics.yzai.qzz.io/recommend", {
+    const response = await fetch("https://lyrics-yai.duckdns.org/recommend", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
